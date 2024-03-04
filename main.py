@@ -10,12 +10,17 @@ CREATE TABLE IF NOT EXISTS users(
     email TEXT NULL UNIQUE,
     phone INTEGER)''')
 
-try:
-    connection.execute('''
-INSERT INTO users(name, surname, email, phone) VALUES ("Ahmadjon", "Abdulfotih", "exaample@gamil.com", 770001234)''')
-    print("O'xshadi")
-except:
-    print("O'xshamadi!")
+# try:
+#     connection.execute('''
+# INSERT INTO users(name, surname, email, phone) VALUES ("Abubakri", "Abdumalikov", "example@gamil.com", 773332255)''')
+#     print("O'xshadi")
+# except:
+#     print("O'xshamadi!")
+
+data = connection.execute("SELECT * FROM users")
+
+for row in data:
+    print(*row)
 
 connection.commit()
 connection.close()
